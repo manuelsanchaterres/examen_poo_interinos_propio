@@ -3,7 +3,7 @@ package domain;
 public abstract class Persona {
 
     // CONSIDERO ID STATIC PARA HACERLA AUTOINCREMENTAL CADA VEZ QUE SE CREA UNA PERSONA
-    protected int id;
+    protected final int id;
     protected String nombre;
     protected String primerApellido;
     protected String segundoApellido;
