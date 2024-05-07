@@ -28,4 +28,18 @@ public class Plaza {
         totalPlazas++;
         id = totalPlazas;
     }
+
+    public TipoPlaza getTipo() {
+        return tipo;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
+
+    public void setAdjudicada(boolean adjudicada) {
+        this.adjudicada = adjudicada;
+    }
 }
+
+

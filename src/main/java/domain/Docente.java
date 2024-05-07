@@ -3,6 +3,7 @@ package domain;
 public class Docente extends Persona{
 
     private String titulacion;
+
     private double puntos;
 
     @Override
@@ -23,5 +24,9 @@ public class Docente extends Persona{
        this.titulacion = titulacion;
        this.puntos = puntos;
    }
+
+    public double getPuntos() {
+        return puntos;
+    }
 }
 

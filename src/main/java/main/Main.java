@@ -10,14 +10,15 @@ public class Main {
 
         // CREAR DOCENTE Y SANITARIO Y AÑADIR A LISTA
 
-        Docente docente1 = new Docente("manuel", "sancha", "terres","gade", 42.5);
-        Docente docente2 = new Docente("pepe", "flores", "hernandez","derecho", 37);
-        Sanitario sanitario = new Sanitario("felipe", "perez", "gonzalez","pediatria",125);
-
+        Docente docente1 = new Docente("manuel", "sancha", "terres","gade", 37);
+        Docente docente2 = new Docente("pepe", "flores", "hernandez","derecho", 42.5);
+        Sanitario sanitario1 = new Sanitario("felipe", "perez", "gonzalez","pediatria",125);
+        Sanitario sanitario2 = new Sanitario("miguel", "marin", "soria","ginecología",175);
         ArrayList<Persona> personas = new ArrayList<Persona>();
         personas.add(docente1);
         personas.add(docente2);
-        personas.add(sanitario);
+        personas.add(sanitario1);
+        personas.add(sanitario2);
 
         // CREAR PLAZAS  Y AÑADIR A LISTA PLAZAS
 
@@ -36,37 +37,75 @@ public class Main {
     private static void adjudicarPlazas (ArrayList<Persona> personas, ArrayList<Plaza> plazas) {
 
         // CREAR ARRAYLIST SANITARIOS
-        ArrayList<Persona> sanitarios = new ArrayList<Persona>();
+        ArrayList<Sanitario> sanitarios = new ArrayList<Sanitario>();
 
         // CREAR ARRAYLIST DOCENTES
-        ArrayList<Persona> docentes = new ArrayList<Persona>();
+        ArrayList<Docente> docentes = new ArrayList<Docente>();
 
         // ASIGNAMOS A PERSONA EN FUNCIÓN DE SI ES TIPO SANITARIO O DOCENTE
         for (Persona persona: personas) {
 
             if (persona instanceof Sanitario){
 
-                sanitarios.add(persona);
+                sanitarios.add((Sanitario) persona);
             } else if (persona instanceof Docente){
 
-                docentes.add(persona);
+                docentes.add((Docente) persona);
             }
         }
 
-        // TODO ORDENAR SANITARIOS POR DIAS TRABAJADOS
+        // BUBBLE SORT DESCENDENTE SANITARIOS POR DIAS TRABAJADOS
 
         for (int i = 0; i < sanitarios.size(); i++) {
 
-            for (int j = 0; j < sanitarios.size(); j++) {
+            for (int j = i + 1; j < sanitarios.size(); j++) {
 
-                if (sanitarios.get(j). > sanitarios.get(i)){
+                if (sanitarios.get(j).getDiasTrabajados() > sanitarios.get(i).getDiasTrabajados()){
 
+                    Sanitario tempSanitario = sanitarios.get(j);
+                    sanitarios.set(j, sanitarios.get(i));
+                    sanitarios.set(i, tempSanitario);
 
                 }
             }
 
         }
 
+        // BUBBLE SORT DESCENDENTE DOCENTES POR PUNTOS ACUMULADOS
+
+        for (int i = 0; i < docentes.size(); i++) {
+
+            for (int j = i + 1; j < docentes.size(); j++) {
+
+                if (docentes.get(j).getPuntos() > docentes.get(i).getPuntos()){
+
+                    Docente tempDocente = docentes.get(j);
+                    docentes.set(j, docentes.get(i));
+                    docentes.set(i, tempDocente);
+
+                }
+            }
+
+        }
+
+        /* ASIGNAMOS PERSONA A CADA PLAZA SEGÚN TIPO DE PLAZA Y SACAMOS DE LISTA DOCENTES Y SANITARIOS
+        * EL PRIMER ELEMENTO YA QUE ESTÁN ORDENADOS EN SENTIDO DESCENDENTE
+        */
+
+        for (Plaza plaza : plazas) {
+
+            if (plaza.getTipo() == TipoPlaza.S) {
+
+                plaza.setPersona(sanitarios.getFirst());
+                plaza.setAdjudicada(true);
+                sanitarios.removeFirst();
+            } else if (plaza.getTipo() == TipoPlaza.D) {
+
+                plaza.setPersona(docentes.getFirst());
+                plaza.setAdjudicada(true);
+                docentes.removeFirst();
+            }
+        }
 
     }
 }
