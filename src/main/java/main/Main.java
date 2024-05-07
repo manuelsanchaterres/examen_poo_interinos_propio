@@ -7,31 +7,7 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-
-        // CREAR DOCENTE Y SANITARIO Y AÑADIR A LISTA
-
-        Docente docente1 = new Docente("manuel", "sancha", "terres","gade", 37);
-        Docente docente2 = new Docente("pepe", "flores", "hernandez","derecho", 42.5);
-        Sanitario sanitario1 = new Sanitario("felipe", "perez", "gonzalez","pediatria",125);
-        Sanitario sanitario2 = new Sanitario("miguel", "marin", "soria","ginecología",175);
-        ArrayList<Persona> personas = new ArrayList<Persona>();
-        personas.add(docente1);
-        personas.add(docente2);
-        personas.add(sanitario1);
-        personas.add(sanitario2);
-
-        // CREAR PLAZAS  Y AÑADIR A LISTA PLAZAS
-
-        Plaza plaza1 = new Plaza(TipoPlaza.D);
-        Plaza plaza2 = new Plaza(TipoPlaza.S);
-        Plaza plaza3 = new Plaza(TipoPlaza.S);
-
-        ArrayList<Plaza> plazas = new ArrayList<Plaza>();
-        plazas.add(plaza1);
-        plazas.add(plaza2);
-        plazas.add(plaza3);
-
-        adjudicarPlazas(personas,plazas);
+        simularAdjudicacion();
     }
 
     private static void adjudicarPlazas (ArrayList<Persona> personas, ArrayList<Plaza> plazas) {
@@ -106,6 +82,33 @@ public class Main {
                 docentes.removeFirst();
             }
         }
+        System.out.println(plazas);
+    }
 
+    public static void simularAdjudicacion() {
+
+        // CREAR DOCENTE Y SANITARIO Y AÑADIR A LISTA
+
+        Docente docente1 = new Docente("manuel", "sancha", "terres","gade", 37);
+        Docente docente2 = new Docente("pepe", "flores", "hernandez","derecho", 42.5);
+        Sanitario sanitario1 = new Sanitario("felipe", "perez", "gonzalez","pediatria",125);
+        Sanitario sanitario2 = new Sanitario("miguel", "marin", "soria","ginecología",175);
+        ArrayList<Persona> personas = new ArrayList<Persona>();
+        personas.add(docente1);
+        personas.add(docente2);
+        personas.add(sanitario1);
+        personas.add(sanitario2);
+
+        // CREAR PLAZAS  Y AÑADIR A LISTA PLAZAS
+
+        Plaza plaza1 = new Plaza(TipoPlaza.D);
+        Plaza plaza2 = new Plaza(TipoPlaza.S);
+        Plaza plaza3 = new Plaza(TipoPlaza.S);
+
+        ArrayList<Plaza> plazas = new ArrayList<Plaza>();
+        plazas.add(plaza1);
+        plazas.add(plaza2);
+        plazas.add(plaza3);
+        adjudicarPlazas(personas,plazas);
     }
 }
