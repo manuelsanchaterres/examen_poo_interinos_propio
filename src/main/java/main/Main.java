@@ -1,16 +1,19 @@
 package main;
 
+import domain.Docente;
 import domain.Persona;
+import domain.Sanitario;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Persona persona1 = new Persona("manuel", "sancha", "terres");
-        Persona persona2 = new Persona("maximo", "fernandez", "riera");
-        Persona persona3 = new Persona("joaquin", "fernandez", "torres");
-        System.out.println(persona1);
-        System.out.println(persona2);
-        System.out.println(persona3);
+        // CREAR DOCENTE Y SANITARIO
+
+        Docente docente = new Docente("manuel", "sancha", "terres","gade", 42.5);
+        Sanitario sanitario = new Sanitario("felipe", "perez", "gonzalez","pediatria",125);
+
+        System.out.println(docente);
+        System.out.println(sanitario);
     }
 }

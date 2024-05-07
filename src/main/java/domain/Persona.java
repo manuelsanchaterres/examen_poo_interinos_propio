@@ -1,26 +1,13 @@
 package domain;
 
-public class Persona {
+public abstract class Persona {
 
     // CONSIDERO ID STATIC PARA HACERLA AUTOINCREMENTAL CADA VEZ QUE SE CREA UNA PERSONA
-    private int id;
-    private String nombre;
-    private String primerApellido;
-    private String segundoApellido;
-    private static int contadorPersonas = 0;
-
-    @Override
-    public String toString() {
-        return "Persona{" +
-                "id='" + id + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", primerApellido='" + primerApellido + '\'' +
-                ", segundoApellido='" + segundoApellido + '\'' +
-                ", contadorPersonas='" + contadorPersonas + '\'' +
-                '}';
-    }
-
-
+    protected int id;
+    protected String nombre;
+    protected String primerApellido;
+    protected String segundoApellido;
+    protected static int contadorPersonas = 0;
 
     public Persona (String nombre, String primerApellido, String segundoApellido) {
 
@@ -33,10 +20,5 @@ public class Persona {
         id = contadorPersonas;
 
     }
-
-    public int getId() {
-        return id;
-    }
-
 
 }
