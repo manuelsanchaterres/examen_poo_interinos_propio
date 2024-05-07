@@ -3,7 +3,6 @@ package domain;
 public class Docente extends Persona{
 
     private String titulacion;
-
     private double puntos;
 
     @Override
@@ -27,6 +26,10 @@ public class Docente extends Persona{
 
     public double getPuntos() {
         return puntos;
+    }
+
+    public String getTitulacion() {
+        return titulacion;
     }
 }
 

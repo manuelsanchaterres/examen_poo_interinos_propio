@@ -2,10 +2,15 @@ package domain;
 
 public class Plaza {
 
+
+
     private final int id;
 
     // ENUM PARA CERRAR LA SELECCIÓN DE POSIBLES VALORES 'D' o 'S'
-    private final TipoPlaza tipo;
+    private char tipo;
+
+
+
     private boolean adjudicada;
     private Persona persona;
     private static int totalPlazas = 0;
@@ -22,15 +27,27 @@ public class Plaza {
     }
 
 
-    public Plaza (TipoPlaza tipo) {
+    public Plaza (char tipo) {
 
         this.tipo = tipo;
         totalPlazas++;
         id = totalPlazas;
     }
 
-    public TipoPlaza getTipo() {
+    public char getTipo() {
         return tipo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public boolean isAdjudicada() {
+        return adjudicada;
+    }
+
+    public Persona getPersona() {
+        return persona;
     }
 
     public void setPersona(Persona persona) {
@@ -40,6 +57,8 @@ public class Plaza {
     public void setAdjudicada(boolean adjudicada) {
         this.adjudicada = adjudicada;
     }
+
+
 }
 
 

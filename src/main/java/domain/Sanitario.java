@@ -3,9 +3,6 @@ package domain;
 public class Sanitario extends Persona{
 
     private String especialidad;
-
-
-
     private int diasTrabajados;
 
     @Override
@@ -29,6 +26,10 @@ public class Sanitario extends Persona{
 
     public int getDiasTrabajados() {
         return diasTrabajados;
+    }
+
+    public String getEspecialidad() {
+        return especialidad;
     }
 }
 
